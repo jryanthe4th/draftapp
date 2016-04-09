@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+
+	<head>
+		<title>Welcome, <%= me.name %>!</title>
+		<!-- Viewport mobile tag for sensible mobile support -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<!--STYLES-->
+		<link rel="stylesheet" href="/styles/angular-toastr.css">
+		<link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
+		<link rel="stylesheet" href="/styles/custom.css">
+		<!--STYLES END-->
+		<!--Added this so the client has access to the csrf tag and it's grabbed first service side on every page -->
+		<script type="text/javascript">
+			window.SAILS_LOCALS = { _csrf: '<%= _csrf %>', me: <%- JSON.stringify(me) %> };
+		</script>
+	</head>
+
+
+	<body class="page-body" ng-app="DraftboardModule" ng-controller="DraftboardCtrl" ng-cloak>
+
+		<!-- container = Fixed-width container container-fluid = full-width -->
+		<div class="container-fluid">
+
+
+			<!-- NAVBAR -->
+			<nav class="navbar navbar-full navbar-inverse" id="nav-bar">
+				<!-- This creates the mechanism for collapse button -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+				<!-- This controls the number of lines in the image when the nav collapse -->
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<!-- This is the brand on the left-hand side. -->
+				<a class="navbar-brand" href="/#/"> Dynasty Draft Board</a>
+				<!-- This is what is the above collapse button points to when the mark-up below is collapsed -->
+				<div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+					<!-- This is what "styles" the li's as navbar items -->
+					<ul class="nav navbar-nav navbar-right">
+						<!-- navbar-right pulls this element right -->
+						<!-- Using ng-show instead of ng-if because we need this mark-up to be in the dom when signup controller
+						fires.  If it's not there (which it wouldn't be in the case of ng-if) then the scope of the signup
+						controller will not be tied to this element. -->
+						<li>
+							<a href="/logout">Log Out</a>
+						</li>
+						<!-- <a ng-controller="signinController" class="btn btn-default navbar-btn navbar-right" href="#" ng-if="!isAuthenticated">sign-in</a> -->
+						<!-- Using ng-show instead of ng-if because we need this mark-up to be in the dom when signup controller
+						fires.  If it's not there (which it wouldn't be in the case of ng-if) then the scope of the signup
+						controller will not be tied to this element. -->
+					</ul>
+				</div>
+			</nav>
+
+			<h1 class="leagueBanner">Draftboard</h1>
+
+
+			<!-- BUTTON TO LAUNCH DRAFT PLAYER MODAL -->
+			<div id="draft-player-button-div">
+				<button type="button" class="btn btn-lg btn-block" id="draft-player-button" ng-click="open()">Draft Player</button>
+			</div>
+
+			<!-- MODAL DRAFTBOARD FORM -->
+			<script type="text/ng-template" id="table.html" id="myModal">
+				<div class="modal-content">
+					<form ng-submit="submitDraftboardForm()">
+						<div class="modal-header" id="modal-title">
+							<button type="button" class="close" id="close-modal" data-dismiss="modal" ng-click="cancel()">&times;</button>
+							Enter Draft Selection
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<input type="text" class="draftplayer-input" placeholder="Player Name" ng-model="draftboardForm.playerName" required>
+							</div>
+							<br>
+							<div class="form-group">
+								<label id="position-label">Position</label><br>
+								<select class="draftplayer-select" name="position" ng-model="draftboardForm.position" ng-options="opt for opt in ['QB','RB','WR','TE','FA','DST', 'K']" required>
+									<option></option><option>QB</option><option>RB</option><option>WR</option><option>TE</option><option>FA</option><option>DST</option><option>K</option>
+								</select>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="submit"  class="btn btn-lg btn-primary" id="submit-selection-button">Submit Selection</button>
+						</div>
+						<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+					</form>
+				</div>
+			</script>
+
+            <div id="draftboard">
+		        <table id="draftboard-table">
+		        	<thead id="owner-names">
+		        		<tr><th ng-repeat="owner in owners">{{ owner.owner }}</th></tr>
+		        	</thead>
+		        	<tbody>
+		        		<tr><td ng-repeat="playerName in attributes.playerName" ng-if="$index < 12">{{ playerName.playerName }}</td></tr>
+		        		<tr><td ng-repeat="playerName in attributes.playerName" ng-if="$index > 11 && $index < 24">{{ playerName.playerName }}</td></tr>
+		        		<tr><td ng-repeat="playerName in attributes.playerName" ng-if="$index > 23 && $index < 36">{{ playerName.playerName }}</td></tr>
+		        		<tr><td ng-repeat="playerName in attributes.playerName" ng-if="$index > 35 && $index < 48">{{ playerName.playerName }}</td></tr>
+		        		<tr><td ng-repeat="playerName in attributes.playerName" ng-if="$index > 47 && $index < 56">{{ playerName.playerName }}</td></tr>
+		        	</tbody>
+		        </table>
+		        <br>
+		        <br>
+		        <ol>
+		        	<li ng-repeat="position in attributes.position" ng-repeat="playerName in attributes.playerName">
+		        		<p>{{ position.position }} - {{ playerName.playerName }}</p>
+		        	</li>
+		        </ol>
+            </div>
+		</div>
+		<!--SCRIPTS-->
+		<script src="/js/dependencies/sails.io.js"></script>
+		<script src="/js/dependencies/angular.js"></script>
+		<script src="/js/dependencies/jquery.min.js"></script>
+		<script src="/js/dependencies/pusher.min.js"></script>
+		<script src="/js/dependencies/angular-animate.min.js"></script>
+		<script src="/js/dependencies/angular-toastr.js"></script>
+		<script src="/js/dependencies/bootstrap.min.js"></script>
+		<script src="/js/dependencies/compareTo.module.js"></script>
+		<script src="/js/dependencies/pusher-angular.js"></script>
+		<script src="/js/dependencies/ui-bootstrap-tpls.js"></script>
+		<script src="/js/public/signup/SignupModule.js"></script>
+		<script src="/js/private/draftboard/DraftboardModule.js"></script>
+		<script src="/js/public/homepage/HomepageModule.js"></script>
+		<script src="/js/private/draftboard/DraftboardCtrl.js"></script>
+		<script src="/js/public/homepage/HomepageCtrl.js"></script>
+		<script src="/js/public/signup/SignupCtrl.js"></script>
+		<!--SCRIPTS END-->
+	</body>
+</html>
