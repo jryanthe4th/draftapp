@@ -22,6 +22,8 @@
 // no matter where we actually lift from.
 process.chdir(__dirname);
 
+"start":"node app.js"
+
 // Ensure a "sails" can be located:
 (function() {
   var sails;
@@ -52,6 +54,7 @@ process.chdir(__dirname);
       rc = function () { return {}; };
     }
   }
+
 
 
   // Start server
