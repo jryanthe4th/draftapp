@@ -24,7 +24,7 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
     	io.socket.on('/draftselection', function(event) {
     		switch (event.verb) {
     			case 'created':
-    				$scope.attributes.push(event.data);
+    				$scope.attributes.playerName.push(event.data);
     				$scope.$apply();
     				break;
     		}
