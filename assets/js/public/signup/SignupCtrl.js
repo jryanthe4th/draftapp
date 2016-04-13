@@ -12,10 +12,11 @@ angular.module('SignupModule').controller('SignupCtrl', ['$scope', '$http', 'toa
 
 		$http.post('/signup', {
 
-			name: 		$scope.signupForm.name,
-			teamName: 	$scope.signupForm.teamName,
-			email: 		$scope.signupForm.email,
-			password: 	$scope.signupForm.password
+			firstName 	: $scope.signupForm.firstName,
+			lastName 	: $scope.signupForm.lastName,
+			teamName 	: $scope.signupForm.teamName,
+			email 		: $scope.signupForm.email,
+			password 	: $scope.signupForm.password
 
 		})
 		.then(function onSuccess(sailsResponse) {

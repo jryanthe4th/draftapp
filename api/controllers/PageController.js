@@ -28,12 +28,13 @@ module.exports = {
 
       return res.view('draftboard', {
         me: {
-          id: 		user.id,
-          name: 	user.name,
-          email: 	user.email,
-          teamName: user.teamName,
-          isAdmin: 	!!user.admin,
-          gravatarUrl: user.gravatarUrl
+          id 			: user.id,
+          firstName 	: user.firstName,
+          lastName 		: user.lastName,
+          email 		: user.email,
+          teamName 		: user.teamName,
+          isAdmin 		: !!user.admin,
+          gravatarUrl 	: user.gravatarUrl
         }
       });
 

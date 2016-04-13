@@ -9,8 +9,14 @@ module.exports = {
 
 	attributes: {
 
-		// The user's full name
-		name: {
+		// The user's first name
+		firstName: {
+			type: 'string',
+			required: true
+		},
+
+		// The user's last name
+		lastName: {
 			type: 'string',
 			required: true
 		},
