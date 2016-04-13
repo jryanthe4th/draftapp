@@ -21,14 +21,14 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
     		$scope.$apply();
     	});
 
-    	io.socket.on('/draftselection', function(event) {
-    		switch (event.verb) {
-    			case 'created':
-    				$scope.attributes.playerName.push(event.data);
-    				$scope.$apply();
-    				break;
-    		}
-    	});
+    	// io.socket.on('/draftselection', function(event) {
+    	// 	switch (event.verb) {
+    	// 		case 'created':
+    	// 			$scope.attributes.playerName.push(event.data);
+    	// 			$scope.$apply();
+    	// 			break;
+    	// 	}
+    	// });
 
 
         // $http({
