@@ -64,8 +64,146 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
 	// //var my_presence_channel = pusher.subscribe('presence-my-channel');
 
 
+    // ARRAY OF ROUNDS
+    $scope.rounds = [
+        {
+            round: 'Round 1'
+        },
+        {
+            round: 'Round 2'
+        },
+        {
+            round: 'Round 3'
+        },
+        {
+            round: 'Round 4'
+        },
+        {
+            round: 'Round 5'
+        }
+    ];
+
     // ARRAY OF OWNERS
-    $scope.owners = [
+    $scope.owners1 = [
+        {
+            owner: 'Purkey'
+        },
+        {
+            owner: 'Jake'
+        },
+        {
+            owner: 'Joe'
+        },
+        {
+            owner: 'Purkey'
+        },
+        {
+            owner: 'Canaan'
+        },
+        {
+            owner: 'Mark'
+        },
+        {
+            owner: 'Joe'
+        },
+        {
+            owner: 'Nick'
+        },
+        {
+            owner: 'Josh'
+        },
+        {
+            owner: 'Jake'
+        },
+        {
+            owner: 'Jordan'
+        },
+        {
+            owner: 'Jordan'
+        }
+    ];
+
+        // ARRAY OF OWNERS
+    $scope.owners2 = [
+        {
+            owner: 'Purkey'
+        },
+        {
+            owner: 'Jake'
+        },
+        {
+            owner: 'Joe'
+        },
+        {
+            owner: 'Danny'
+        },
+        {
+            owner: 'Purkey'
+        },
+        {
+            owner: 'Mark'
+        },
+        {
+            owner: 'Jensen'
+        },
+        {
+            owner: 'Nick'
+        },
+        {
+            owner: 'Josh'
+        },
+        {
+            owner: 'Nick'
+        },
+        {
+            owner: 'Purkey'
+        },
+        {
+            owner: 'Purkey'
+        }
+    ];
+
+        // ARRAY OF OWNERS
+    $scope.owners3 = [
+        {
+            owner: 'Purkey'
+        },
+        {
+            owner: 'Canaan'
+        },
+        {
+            owner: 'Joe'
+        },
+        {
+            owner: 'Purkey'
+        },
+        {
+            owner: 'Canaan'
+        },
+        {
+            owner: 'Mark'
+        },
+        {
+            owner: 'Purkey'
+        },
+        {
+            owner: 'Nick'
+        },
+        {
+            owner: 'Josh'
+        },
+        {
+            owner: 'Riley'
+        },
+        {
+            owner: 'Jordan'
+        },
+        {
+            owner: 'Purkey'
+        }
+    ];
+
+    $scope.owners4 = [
         {
             owner: 'Purkey'
         },
@@ -104,24 +242,47 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
         }
     ];
 
-    // ARRAY OF ROUNDS
-    $scope.rounds = [
+	$scope.owners5 = [
         {
-            round: 'Round 1'
+            owner: 'Purkey'
         },
         {
-            round: 'Round 2'
+            owner: 'Jake'
         },
         {
-            round: 'Round 3'
+            owner: 'Joe'
         },
         {
-            round: 'Round 4'
+            owner: 'Mack'
         },
         {
-            round: 'Round 5'
+            owner: 'Canaan'
+        },
+        {
+            owner: 'Mark'
+        },
+        {
+            owner: 'Jensen'
+        },
+        {
+            owner: 'Nick'
+        },
+        {
+            owner: 'Josh'
+        },
+        {
+            owner: 'Riley'
+        },
+        {
+            owner: 'Jordan'
+        },
+        {
+            owner: 'Danny'
         }
     ];
+
+
+
 
 
 
