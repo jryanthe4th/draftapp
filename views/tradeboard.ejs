@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+
+	<head>
+		<title>Welcome, <%= me.firstName %>!</title>
+		<!-- Viewport mobile tag for sensible mobile support -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<!--STYLES-->
+		<link rel="stylesheet" href="/styles/angular-toastr.css">
+		<link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
+		<link rel="stylesheet" href="/styles/custom.css">
+		<!--STYLES END-->
+		<link href='https://fonts.googleapis.com/css?family=Jura:600' rel='stylesheet' type='text/css'>
+		<!--Added this so the client has access to the csrf tag and it's grabbed first service side on every page -->
+		<script type="text/javascript">
+			window.SAILS_LOCALS = { _csrf: '<%= _csrf %>', me: <%- JSON.stringify(me) %> };
+		</script>
+
+	</head>
+
+
+	<body class="page-body" ng-app="TradeboardModule" ng-controller="TradeboardCtrl" ng-cloak>
+
+		<!-- container = Fixed-width container container-fluid = full-width -->
+		<div class="container-fluid">
+
+
+			<!-- NAVBAR -->
+			<nav class="navbar navbar-full navbar-inverse" id="nav-bar">
+				<!-- This creates the mechanism for collapse button -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+				<!-- This controls the number of lines in the image when the nav collapse -->
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<!-- This is the brand on the left-hand side. -->
+				<a class="navbar-brand" href="/#/"> Dynasty Draft Board</a>
+				<a class="navbar-brand" href="/tradeboard">Trade Board</a>
+				<!-- This is what is the above collapse button points to when the mark-up below is collapsed -->
+				<div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+					<!-- This is what "styles" the li's as navbar items -->
+					<ul class="nav navbar-nav navbar-right">
+						<!-- navbar-right pulls this element right -->
+						<!-- Using ng-show instead of ng-if because we need this mark-up to be in the dom when signup controller
+						fires.  If it's not there (which it wouldn't be in the case of ng-if) then the scope of the signup
+						controller will not be tied to this element. -->
+						<li>
+							<a href="/logout">Log Out</a>
+						</li>
+						<!-- <a ng-controller="signinController" class="btn btn-default navbar-btn navbar-right" href="#" ng-if="!isAuthenticated">sign-in</a> -->
+						<!-- Using ng-show instead of ng-if because we need this mark-up to be in the dom when signup controller
+						fires.  If it's not there (which it wouldn't be in the case of ng-if) then the scope of the signup
+						controller will not be tied to this element. -->
+					</ul>
+				</div>
+			</nav>
+
+			<h1 class="leagueBanner">Trade Board</h1>
+
+
+			<!-- BUTTON TO LAUNCH TRADE MODAL -->
+			<div id="draft-player-button-div">
+				<button type="button" class="btn btn-lg btn-block" id="draft-player-button" ng-click="open()">Make a Trade</button>
+			</div>
+
+			<!-- MODAL TRADEBOARD FORM -->
+			<script type="text/ng-template" id="table.html" id="myModal">
+				<div class="modal-dialog modal-lg" class="modal-content">
+
+					<form ng-submit="submitTradeboardForm()">
+
+						<div class="modal-header" id="modal-title">
+							<button type="button" class="close" id="close-modal" data-dismiss="modal" ng-click="cancel()">&times;</button>
+							Trade Desk
+						</div>
+
+
+						<div class="modal-body">
+
+							<div class="row1">
+								<div class="form-group">
+									<div class="col-md-6">
+										<input type="text" class="draftplayer-input" placeholder="Team Owner a" ng-model="tradeboardForm.ownerA" required>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-6">
+										<input type="text" class="draftplayer-input" placeholder="Team Owner b" ng-model="tradeboardForm.ownerB" required>
+									</div>
+								</div>
+							</div>
+
+							<div class="row2">
+								<div class="form-group">
+									<div class="col-md-6">
+										<input type="text" class="draftplayer-input" placeholder="Player / Draft Pick 1a" ng-model="tradeboardForm.tradeA1" required>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-6">
+										<input type="text" class="draftplayer-input" placeholder="Player / Draft Pick 1b" ng-model="tradeboardForm.tradeB1" required>
+									</div>
+								</div>
+							</div>
+
+							<div class="row3">
+								<div class="form-group">
+									<div class="col-md-6">
+										<input type="text" class="draftplayer-input" placeholder="Player / Draft Pick 2a" ng-model="tradeboardForm.tradeA2">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-6">
+										<input type="text" class="draftplayer-input" placeholder="Player / Draft Pick 2b" ng-model="tradeboardForm.tradeB2">
+									</div>
+								</div>
+							</div>
+
+							<div class="row4">
+								<div class="form-group">
+									<div class="col-md-6">
+										<input type="text" class="draftplayer-input" placeholder="Player / Draft Pick 3a" ng-model="tradeboardForm.tradeA3">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-6">
+										<input type="text" class="draftplayer-input" placeholder="Player / Draft Pick 3b" ng-model="tradeboardForm.tradeB3">
+									</div>
+								</div>
+							</div>
+
+							<div class="row5">
+								<div class="form-group">
+									<div class="col-md-6">
+										<input type="text" class="draftplayer-input" placeholder="Player / Draft Pick 4a" ng-model="tradeboardForm.tradeA4">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-6">
+										<input type="text" class="draftplayer-input" placeholder="Player / Draft Pick 4b" ng-model="tradeboardForm.tradeB4">
+									</div>
+								</div>
+							</div>
+
+							<div class="row6">
+								<div class="form-group">
+									<div class="col-md-6">
+										<input type="text" class="draftplayer-input" placeholder="Player / Draft Pick 5a" ng-model="tradeboardForm.tradeA5">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-6">
+										<input type="text" class="draftplayer-input" placeholder="Player / Draft Pick 5b" ng-model="tradeboardForm.tradeB5">
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="modal-footer">
+							<button type="submit"  class="btn btn-lg btn-primary" id="submit-selection-button">Submit Trade</button>
+						</div>
+						<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+					</form>
+				</div>
+			</script>
+
+
+			<li ng-repeat="ownerA in attributes">
+				<p>{{ ownerA.ownerA }}</p>
+			</li>
+
+
+		</div>
+		<!--SCRIPTS-->
+		<script src="/js/dependencies/sails.io.js"></script>
+		<script src="/js/dependencies/angular.js"></script>
+		<script src="/js/dependencies/jquery.min.js"></script>
+		<script src="/js/dependencies/pusher.min.js"></script>
+		<script src="/js/dependencies/angular-animate.min.js"></script>
+		<script src="/js/dependencies/angular-toastr.js"></script>
+		<script src="/js/dependencies/bootstrap.min.js"></script>
+		<script src="/js/dependencies/compareTo.module.js"></script>
+		<script src="/js/dependencies/pusher-angular.js"></script>
+		<script src="/js/dependencies/ui-bootstrap-tpls.js"></script>
+		<script src="/js/public/signup/SignupModule.js"></script>
+		<script src="/js/public/homepage/HomepageModule.js"></script>
+		<script src="/js/private/draftboard/DraftboardCtrl.js"></script>
+		<script src="/js/private/tradeboard/TradeboardCtrl.js"></script>
+		<script src="/js/public/homepage/HomepageCtrl.js"></script>
+		<script src="/js/public/signup/SignupCtrl.js"></script>
+		<!--SCRIPTS END-->
+	</body>
+</html>
