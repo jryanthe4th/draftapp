@@ -43,5 +43,3 @@ angular.module('HomepageModule').controller('HomepageCtrl', ['$scope', '$http', 
 		});
 	};
 }]);
-
-

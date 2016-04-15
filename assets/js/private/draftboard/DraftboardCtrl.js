@@ -1,9 +1,9 @@
-var myApp = angular.module('DraftboardModule');
+var myApp = angular.module('DraftboardModule', ['toastr', 'ngAnimate', 'ui.bootstrap', 'pusher-angular']);
 
 ////////////////////////////
 // DRAFTBOARD CONTROLLER
 ////////////////////////////
-myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$pusher', function($scope, $http, toastr, $uibModal, $pusher){
+myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$pusher', function($scope, $http, toastr, $uibModal, $pusher) {
 
     // Setup DraftboardForm loading state
     $scope.draftboardForm = {

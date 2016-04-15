@@ -37,6 +37,7 @@ module.exports.routes = {
 	//////////////////////////////////////////////////////////
 
 	'GET /signup': {view: 'signup'},
+	'GET /tradeboard': 'PageController.showTradeboardPage',
 	'GET /': 'PageController.showHomePage',
 
 

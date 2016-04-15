@@ -23,7 +23,6 @@ module.exports = {
 			return res.json({
 				id: newDraftSelection.id
 			});
-
 		});
 	}
 };
