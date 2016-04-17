@@ -48,6 +48,7 @@ module.exports.routes = {
 	// User enrollment & authentication
 	'POST /signup': 'UserController.signup',
 	'POST /draftboard': 'DraftSelectionController.draftboard',
+	'POST /tradeboard': 'TradeController.tradeboard',
 	'PUT /login': 'UserController.login',
 	// 'PUT /login': 'SignupController.login',
 	'GET /logout': 'UserController.logout'
