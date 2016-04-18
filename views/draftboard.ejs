@@ -151,21 +151,25 @@
 		        	<tbody>
 		        		<tr><td ng-repeat="playerName in attributes.playerName" ng-if="$index > 59 && $index < 72">{{ playerName.playerName }}</td></tr>
 		        	</tbody>
-
 		        </table>
-
-
-
 		        <br>
 		        <br>
-		        <ol>
-<!-- 		        	<li ng-repeat="position in attributes.position" ng-repeat="playerName in attributes.playerName">
-		        		<p>{{ position.position }} - {{ playerName.playerName }}</p>
-		        	</li> -->
-		        	<li ng-repeat="playerName in attributes.playerName">
-		        		<p>{{ playerName.playerName }}</p>
-		        	</li>
-		        </ol>
+		        <div id="lower-ol-container">
+			        <div id="list-left">
+				        <ol reversed>
+				        	<li ng-repeat="position in attributes.position | orderBy:'$index':true">
+				        		<p>{{ position.position }}</p>
+				        	</li>
+				        </ol>
+			        </div>
+			        <div id="list-right">
+				        <ol id="list-right-ol" reversed>
+				        	<li ng-repeat="playerName in attributes.playerName | orderBy:'$index':true">
+				        		<p>{{ playerName.playerName }}</p>
+				        	</li>
+				        </ol>
+	            	</div>
+	            </div>
             </div>
 		</div>
 		<!--SCRIPTS-->
