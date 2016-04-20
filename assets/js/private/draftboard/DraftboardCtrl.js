@@ -283,7 +283,7 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
         }
     ];
 
-
+    $scope.position = '';
 
     $scope.set_color = function(position) {
     	if(position.position == 'QB') {
