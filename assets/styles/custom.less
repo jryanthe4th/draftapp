@@ -39,6 +39,11 @@ margin-right: 2px;
 	background-color: #888888;
 }
 
+
+/////////////////////////////////////////////////////////////////////
+// HOMEPAGE
+/////////////////////////////////////////////////////////////////////
+
 // HOMEPAGE JUMBOTRON
 .jumbotron {
  	text-align: center;
@@ -114,6 +119,11 @@ margin-right: 2px;
 	margin-bottom: 20px;
 }
 
+
+/////////////////////////////////////////////////////////////////////
+// SIGNUP FORM
+/////////////////////////////////////////////////////////////////////
+
 // SIGNUP PAGE FORM
 #sign-up-form {
 	font-family: 'Jura', sans-serif;
@@ -165,6 +175,11 @@ margin-top: 20px;
  z-index: 100;
 }
 
+
+/////////////////////////////////////////////////////////////////////
+// DRAFT PLAYER BUTTON
+/////////////////////////////////////////////////////////////////////
+
 // DRAFTBOARD LAUNCH MODAL BUTTON
 #draft-player-button-div {
 	width: 14%;
@@ -192,6 +207,11 @@ margin-top: 20px;
 	}
 }
 
+
+/////////////////////////////////////////////////////////////////////
+// DRAFTBOARD
+/////////////////////////////////////////////////////////////////////
+
 // DRAFTBOARD
 #draftboard {
 	width: 90%;
@@ -204,6 +224,38 @@ margin-top: 20px;
 
 #draftboard-table {
 	margin: auto;
+}
+
+#draftboard-tabs {
+	padding-top: 3%;
+	padding-left: 5%;
+	border-bottom: 1px solid #000000;
+
+	li {
+		width: 10%;
+		text-align: center;
+		font-family: 'Jura', sans-serif;
+
+		a {
+			background-color: none;
+			border: 1px solid #000000;
+			border-bottom: none;
+			color: #000000;
+
+			&:hover {
+				background-color: #a6a6a6;
+			}
+		}
+
+	}
+
+	li.active {
+		border-bottom: none;
+
+		a {
+			background-color: #888888;
+		}
+	}
 }
 
 // DRAFTBOARD TABLE
@@ -226,6 +278,16 @@ tbody tr td {
 	background: #a6a6a6;
 }
 
+/////////////////////////////////////////////////////////////////////
+// LIST
+/////////////////////////////////////////////////////////////////////
+
+// LIST
+#list {
+	margin-top: 3%;
+	font-family: 'Jura', sans-serif;
+	font-size: 2em;
+}
 
 #lower-ol-container {
 
@@ -238,9 +300,8 @@ tbody tr td {
 }
 
 #ol-position {
-	padding-left: 14px;
-	padding-right: 10px;
-	min-width: 60px;
+	padding-left: 40%;
+	min-width: 100px;
 }
 
 
@@ -260,7 +321,8 @@ tbody tr td {
 	float: left;
 	width: 50%;
 	list-style-type: none;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
+	min-width: 300 px;
 }
 
 // DRAFTBOARD OL
@@ -268,6 +330,11 @@ tbody tr td {
 	list-style-type: none;
 	min-width: 300px;
 }
+
+
+/////////////////////////////////////////////////////////////////////
+// MODAL
+/////////////////////////////////////////////////////////////////////
 
 // MODAL CONTENT
 .modal-content {
@@ -343,6 +410,11 @@ select {
 	padding: 30px;
 }
 
+
+/////////////////////////////////////////////////////////////////////
+// MISC
+/////////////////////////////////////////////////////////////////////
+
 // remove 1px offset glyphicons have
 form .glyphicon {
     top: 0;
@@ -358,6 +430,11 @@ will ultimately load to make the ng-cloak display none until $compile thing runs
 .gravatarSm {
  line-height: 3.5;
 }
+
+
+/////////////////////////////////////////////////////////////////////
+// FOOTER
+/////////////////////////////////////////////////////////////////////
 
 // FOOTER LINKS
 .dynasty-links a {
