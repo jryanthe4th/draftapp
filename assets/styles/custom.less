@@ -301,9 +301,13 @@ tbody tr td {
 
 }
 
+// CONTROLS THE BACKGROUND COLOR WIDTH OF THE PLAYER POSITIONS
 #ol-position {
 	padding-left: 40%;
 	min-width: 500px;
+}
+
+#ol-playerName {
 }
 
 
@@ -312,7 +316,7 @@ tbody tr td {
 #list-left {
 	float: left;
 	width: 6%;
-	margin-left: 10%;
+	margin-left: 5%;
 	list-style-type: none;
 	margin-bottom: 40px;
 	min-width: 30px;
@@ -324,13 +328,13 @@ tbody tr td {
 	width: 50%;
 	list-style-type: none;
 	margin-bottom: 40px;
-	min-width: 300 px;
+	min-width: 300px;
 }
 
 // DRAFTBOARD OL
 #list-right-ol {
 	list-style-type: none;
-	min-width: 300px;
+	margin-left: 15px;
 }
 
 
@@ -439,23 +443,26 @@ will ultimately load to make the ng-cloak display none until $compile thing runs
 /////////////////////////////////////////////////////////////////////
 
 // FOOTER LINKS
-.dynasty-links a {
+.dynasty-links {
 
-	&:hover {
-		color: #ffffff !important;
-	}
-	&:focus {
-		color: #ffffff;
-	}
-	&:link {
-		color: #000000;
-		text-decoration: none;
-	}
-	&:visited {
-		color: #000000;
-	}
-	&:active {
-		color: #000000;
+	a {
+
+		&:hover {
+			color: #ffffff !important;
+		}
+		&:focus {
+			color: #ffffff;
+		}
+		&:link {
+			color: #000000;
+			text-decoration: none;
+		}
+		&:visited {
+			color: #000000;
+		}
+		&:active {
+			color: #000000;
+		}
 	}
 }
 
