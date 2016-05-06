@@ -17,6 +17,11 @@ module.exports = {
 		position: {
 			type: 'string',
 			required: true
+		},
+
+		// Every draft selection belongs to a particular user
+		owner: {
+			model: 'User'
 		}
 
 	}

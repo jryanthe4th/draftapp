@@ -12,7 +12,8 @@ module.exports = {
 		DraftSelection.create({
 
 			playerName: req.param('playerName'),
-			position: 	req.param('position')
+			position: 	req.param('position'),
+			owner: 		req.session.me,
 
 		}, function draftSelectionCreated(err, newDraftSelection) {
 

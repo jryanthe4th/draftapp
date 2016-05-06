@@ -49,6 +49,11 @@ module.exports = {
 			defaultsTo: new Date(0)
 		},
 
+		draftSelections: {
+			collection: 'DraftSelection',
+			via: 'owner'
+		},
+
 		// url for gravatar
 		gravatarUrl: {
 			type: 'string'
