@@ -75,7 +75,7 @@
 				<!-- checking whether the form "signup" with the "firstName" property is both $invalid AND $dirty.  If it is
 				insert the "has-error" class on the input field (i.e. insert a red border around the input field)-->
 				<div class="control-group form-group col-md-6" ng-class="{'has-error':signup.firstName.$invalid && signup.firstName.$dirty}">
-					<label>First Name</label>
+					<!-- <label>First Name</label> -->
 					<!-- For this input field make it required, and have a max length of 25 -->
 					<input type="text" class="form-control" placeholder="First Name" name="firstName" ng-model="signupForm.firstName" ng-maxlength="50" required>
 					<!-- Also, if signup.firstName.$dirty is true, show the message depending upon the particular properties truthiness (e.g. required
@@ -90,7 +90,7 @@
 				<!-- checking whether the form "signup" with the "lastName" property is both $invalid AND $dirty.  If it is
 				insert the "has-error" class on the input field (i.e. insert a red border around the input field)-->
 				<div class="control-group form-group col-md-6" ng-class="{'has-error':signup.lastName.$invalid && signup.lastName.$dirty}">
-					<label>Last Name</label>
+					<!-- <label>Last Name</label> -->
 					<!-- For this input field make it required, and have a max length of 25 -->
 					<input type="text" class="form-control" placeholder="Last Name" name="lastName" ng-model="signupForm.lastName" ng-maxlength="50" required>
 					<!-- Also, if signup.lastName.$dirty is true, show the message depending upon the particular properties truthiness (e.g. required
@@ -104,7 +104,7 @@
 
 				<!-- TEAM NAME INPUT -->
 				<div class="control-group form-group col-md-12" ng-class="{'has-error':signup.teamName.$invalid && signup.teamName.$dirty}">
-					<label>Team Name</label>
+					<!-- <label>Team Name</label> -->
 					<input type="text" class="form-control" placeholder="Team Name" name="teamName" ng-model="signupForm.teamName" ng-maxlength="50" required>
 					<span class="help-block has-error" ng-if="signup.teamName.$dirty">
 						<span ng-show="signup.teamName.$error.required">Team Name is required</span>
@@ -115,8 +115,8 @@
 
 				<!-- EMAIL INPUT -->
 				<div class="control-group form-group col-md-12" ng-class="{'has-error':signup.email.$invalid && signup.email.$dirty}">
-					<label>Email</label>
-					<input type="email" class="form-control" placeholder="hardmoney@gmail.com" name="email" ng-model="signupForm.email" required >
+					<!-- <label>Email</label> -->
+					<input type="email" class="form-control" placeholder="Email" name="email" ng-model="signupForm.email" required >
 					<span class="help-block has-error" ng-if="signup.email.$dirty">
 						<span ng-show="signup.email.$error.required">Email address is required</span>
 						<span ng-show="signup.email.$error.email">Not a valid email address</span>
@@ -126,9 +126,9 @@
 
 				<!-- PASSWORD INPUT -->
 				<div class="control-group form-group col-md-6" ng-class="{'has-error':signup.password.$invalid && signup.password.$dirty}">
-					<label>Password</label>
+					<!-- <label>Password</label> -->
 					<!-- Added the compareTo directive that compares the passowrds -->
-					<input type="password" class="form-control" placeholder="At least 6 characters" name="password" ng-model="signupForm.password" id="password" required ng-minlength="6" compare-to="signupForm.confirmPassword" >
+					<input type="password" class="form-control" placeholder="Password" name="password" ng-model="signupForm.password" id="password" required ng-minlength="6" compare-to="signupForm.confirmPassword" >
 					<span class="help-block has-error" ng-if="signup.password.$dirty">
 						<span ng-show="signup.password.$error.required">Password is required</span>
 						<span ng-show="signup.password.$error.minlength">Password must be at least 6 characters</span>
@@ -138,8 +138,8 @@
 
 				<!-- CONFIRM PASSWORD -->
 				<div class="control-group form-group col-md-6">
-					<label>Re-enter Password</label>
-					<input type="password" class="form-control" placeholder="One more time" name="confirmation" ng-model="signupForm.confirmPassword" required>
+					<!-- <label>Re-enter Password</label> -->
+					<input type="password" class="form-control" placeholder="Re-enter Password" name="confirmation" ng-model="signupForm.confirmPassword" required>
 					<span class="help-block has-error" ng-if="signup.confirmation.$dirty">
 						<span ng-show="signup.password.$error.compareTo">Passwords must match</span>
 						<br>
