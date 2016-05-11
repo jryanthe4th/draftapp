@@ -44,12 +44,12 @@ module.exports.sockets = {
   // -OR-
   //
 
-  // adapter: 'socket.io-redis',
-  // host: 'lab.redistogo.com',
-  // port: 10095,
-  // //db: 0,
-  // user: 'redistogo',
-  // pass: 'efc4b5ade28b843cf52d72b91052a8bc',
+  adapter: 'socket.io-redis',
+  host: 'lab.redistogo.com',
+  port: 10095,
+  //db: 0,
+  user: 'redistogo',
+  pass: 'efc4b5ade28b843cf52d72b91052a8bc',
 
 
 

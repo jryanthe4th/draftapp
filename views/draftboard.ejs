@@ -16,6 +16,18 @@
 		<script type="text/javascript">
 			window.SAILS_LOCALS = { _csrf: '<%= _csrf %>', me: <%- JSON.stringify(me) %> };
 		</script>
+		<script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var socket = io();
+				$('form').submit(function() {
+					socket.emit('draft selection', $('#draftselection').val());
+					$('#draftselection').val('');
+					return false;
+				});
+			})
+		</script>
 
 	</head>
 
@@ -75,12 +87,12 @@
 						</div>
 						<div class="modal-body">
 							<div class="form-group">
-								<input type="text" class="draftplayer-input" placeholder="Player Name" ng-model="draftboardForm.playerName" required>
+								<input type="text" class="draftplayer-input" id="draftselection" placeholder="Player Name" ng-model="draftboardForm.playerName" required>
 							</div>
 							<br>
 							<div class="form-group">
 								<label id="position-label">Position</label><br>
-								<select class="draftplayer-select" name="position" ng-model="draftboardForm.position" ng-options="opt for opt in ['QB','RB','WR','TE', 'K', 'DST']" required>
+								<select class="draftplayer-select" name="position" ng-model="draftboardForm.position" ng-options="opt for opt in ['QB','RB','WR','TE','K','DST']" required>
 									<option></option><option>QB</option><option>RB</option><option>WR</option><option>TE</option><option>K</option><option>DST</option>
 								</select>
 							</div>
@@ -185,6 +197,7 @@
 		<script src="/js/dependencies/pusher.min.js"></script>
 		<script src="/js/dependencies/angular-animate.min.js"></script>
 		<script src="/js/dependencies/angular-toastr.js"></script>
+		<script src="/js/dependencies/app.js"></script>
 		<script src="/js/dependencies/bootstrap.min.js"></script>
 		<script src="/js/dependencies/compareTo.module.js"></script>
 		<script src="/js/dependencies/pusher-angular.js"></script>

@@ -14,55 +14,23 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
     $scope.attributes.playerName = '';
     $scope.attributes.position = '';
 
-
     	io.socket.get('/draftselection', function(data) {
     		$scope.attributes.playerName = data;
     		$scope.attributes.position = data;
     		$scope.$apply();
     	});
 
-    	io.socket.on('/draftselection', function(event) {
-    		switch (event.verb) {
-    			case 'created':
-    				$scope.attributes.playerName.push(event.data);
-    				$scope.$apply();
-    				break;
-    		}
-    	});
-
-
-        // $http({
-        //     method: 'GET',
-        //     url: '//localhost:1337/draftselection'
-        // })
-        // .success(function (data, status, headers, config) {
-        //     $scope.attributes.playerName = data;
-        //     $scope.attributes.position = data;
-        // })
-        // .error(function (data, status, headers, config) {
-        //     // Something went wrong
-        // });
-
-	// PUSHER
-	// var client = new Pusher('176fb3ce7c5d5262c035', {
-	// 	appId: '194275',
-	// 	secret: 'd1147a2ab56dae49ba98',
-	// 	encrypted: true
-	// });
-	// var pusher = $pusher(client);
-	// var my_private_channel = pusher.subscribe('private-my-channel');
-	// my_private_channel.bind('new-draft-pick',
-	// 	function(data) {
-	// 		// update with new draft pick
-
-	// 	}
-	// );
-	// pusher.connection.bind('state-change', function(states) {
-	// 	// var previous = states.previous...
-	// })
-	// //channel = pusher.channel('private-my-channel');
-	// //var my_presence_channel = pusher.subscribe('presence-my-channel');
-
+    	// $http({
+		//     method: 'GET',
+		//     url: '//localhost:1337/draftselection'
+		// })
+		// .success(function (data, status, headers, config) {
+		//     $scope.attributes.playerName = data;
+		//     $scope.attributes.position = data;
+		// })
+		// .error(function (data, status, headers, config) {
+		//     // Something went wrong
+		// });
 
     // ARRAY OF ROUNDS
     $scope.rounds = [
