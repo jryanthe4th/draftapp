@@ -8,35 +8,11 @@ myApp.controller('TradeboardCtrl', ['$scope', '$http', '$uibModal', function($sc
 
 	$scope.attributes = {};
 	$scope.attributes.trade = '';
-	// $scope.attributes.tradeA1 = '';
-	// $scope.attributes.tradeA2 = '';
-	// $scope.attributes.tradeA3 = '';
-	// $scope.attributes.tradeA4 = '';
-	// $scope.attributes.tradeA5 = '';
-
-	// $scope.attributes.ownerB = '';
-	// $scope.attributes.tradeB1 = '';
-	// $scope.attributes.tradeB2 = '';
-	// $scope.attributes.tradeB3 = '';
-	// $scope.attributes.tradeB4 = '';
-	// $scope.attributes.tradeB5 = '';
 
 
 	io.socket.get('/trade', function(data) {
 
 		$scope.attributes.trade = data;
-		// $scope.attributes.tradeA1 = data;
-		// $scope.attributes.tradeA2 = data;
-		// $scope.attributes.tradeA3 = data;
-		// $scope.attributes.tradeA4 = data;
-		// $scope.attributes.tradeA5 = data;
-
-		// $scope.attributes.ownerB = data;
-		// $scope.attributes.tradeB1 = data;
-		// $scope.attributes.tradeB2 = data;
-		// $scope.attributes.tradeB3 = data;
-		// $scope.attributes.tradeB4 = data;
-		// $scope.attributes.tradeB5 = data;
 
 		$scope.$apply();
 
@@ -51,18 +27,6 @@ myApp.controller('TradeboardCtrl', ['$scope', '$http', '$uibModal', function($sc
 		});
 		uibModalInstance.result.then(function(newAttribute) {
 			$scope.attributes.trade.push(newAttribute);
-			// $scope.attributes.tradeA1.push(newAttribute);
-			// $scope.attributes.tradeA2.push(newAttribute);
-			// $scope.attributes.tradeA3.push(newAttribute);
-			// $scope.attributes.tradeA4.push(newAttribute);
-			// $scope.attributes.tradeA5.push(newAttribute);
-
-			// $scope.attributes.ownerB.push(newAttribute);
-			// $scope.attributes.tradeB1.push(newAttribute);
-			// $scope.attributes.tradeB2.push(newAttribute);
-			// $scope.attributes.tradeB3.push(newAttribute);
-			// $scope.attributes.tradeB4.push(newAttribute);
-			// $scope.attributes.tradeB5.push(newAttribute);
 		});
 	};
 
@@ -80,19 +44,7 @@ myApp.controller('uibModalInstanceCtrl', ['$scope', '$http', '$uibModalInstance'
 
         $http.post('/tradeboard', {
 
-        	trade: $scope.tradeboardForm.trade,
-			// tradeA1: $scope.tradeboardForm.tradeA1,
-			// tradeA2: $scope.tradeboardForm.tradeA2,
-			// tradeA3: $scope.tradeboardForm.tradeA3,
-			// tradeA4: $scope.tradeboardForm.tradeA4,
-			// tradeA5: $scope.tradeboardForm.tradeA5,
-
-			// ownerB: $scope.tradeboardForm.ownerB,
-			// tradeB1: $scope.tradeboardForm.tradeB1,
-			// tradeB2: $scope.tradeboardForm.tradeB2,
-			// tradeB3: $scope.tradeboardForm.tradeB3,
-			// tradeB4: $scope.tradeboardForm.tradeB4,
-			// tradeB5: $scope.tradeboardForm.tradeB5
+        	trade: $scope.tradeboardForm.trade
 
         })
         .then(function onSuccess(sailsResponse) {
@@ -106,19 +58,7 @@ myApp.controller('uibModalInstanceCtrl', ['$scope', '$http', '$uibModalInstance'
         });
 
 		$uibModalInstance.close({
-			'trade': $scope.tradeboardForm.trade,
-			// 'tradeA1': $scope.tradeboardForm.tradeA1,
-			// 'tradeA2': $scope.tradeboardForm.tradeA2,
-			// 'tradeA3': $scope.tradeboardForm.tradeA3,
-			// 'tradeA4': $scope.tradeboardForm.tradeA4,
-			// 'tradeA5': $scope.tradeboardForm.tradeA5,
-
-			// 'ownerB': $scope.tradeboardForm.ownerB,
-			// 'tradeB1': $scope.tradeboardForm.tradeB1,
-			// 'tradeB2': $scope.tradeboardForm.tradeB2,
-			// 'tradeB3': $scope.tradeboardForm.tradeB3,
-			// 'tradeB4': $scope.tradeboardForm.tradeB4,
-			// 'tradeB5': $scope.tradeboardForm.tradeB5
+			'trade': $scope.tradeboardForm.trade
 		});
 	};
 
