@@ -198,7 +198,7 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
             owner: 'Nick'
         },
         {
-            owner: 'Josh'
+            owner: 'Purkey'
         },
         {
             owner: 'Josh'
@@ -251,6 +251,44 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
         }
     ];
 
+
+
+//////////////////////////////////////////////////////////////////////////
+
+
+    // $scope.attributes.ownerRd1 = '';
+
+    // // io.socket.get('/draftorder', function(data) {
+    // // 	$scope.attributes.ownerRd1 = data;
+    // // 	$scope.$apply();
+    // // });
+
+    // $scope.submitDraftOrderForm = function() {
+
+    // 	// Submit a owner name
+    // 	$scope.draftorderForm.loading = true;
+
+    // 	$http.post('/draftorder', {
+
+    // 		ownerRd1: $scope.draftorderForm.ownerRd1
+
+    // 	})
+    // 	.then(function onSuccess(sailsResponse) {
+    //         // window.location = '/';
+    //     })
+    //     .catch(function onError(sailsResponse) {
+    //         console.log(err);
+    //     })
+    //     .finally(function eitherWay() {
+    //     	$scope.draftorderForm.loading = false;
+    //     });
+    // };
+
+
+//////////////////////////////////////////////////////////////////////////
+
+
+
     $scope.position = '';
 
     $scope.set_color = function(position) {
@@ -273,9 +311,6 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
     		return { background: '#F1FFAB' }
     	}
     }
-
-
-
 
 
     $scope.open = function() {

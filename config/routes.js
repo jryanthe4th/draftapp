@@ -38,6 +38,7 @@ module.exports.routes = {
 
 	'GET /signup': {view: 'signup'},
 	'GET /tradeboard': 'PageController.showTradeboardPage',
+	'GET /draftorder': 'PageController.showDraftorderPage',
 	'GET /': 'PageController.showHomePage',
 
 
@@ -49,6 +50,7 @@ module.exports.routes = {
 	'POST /signup': 'UserController.signup',
 	'POST /draftboard': 'DraftSelectionController.draftboard',
 	'POST /tradeboard': 'TradeController.tradeboard',
+	// 'POST /draftorder': 'OwnersController.ownerRd1',
 	'PUT /login': 'UserController.login',
 	// 'PUT /login': 'SignupController.login',
 	'GET /logout': 'UserController.logout'

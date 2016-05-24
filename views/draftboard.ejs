@@ -50,6 +50,7 @@
 				<!-- This is the brand on the left-hand side. -->
 				<a class="navbar-brand" href="/#/">Draft Board</a>
 				<a class="navbar-brand" href="/tradeboard">Trade Board</a>
+				<a class="navbar-brand" href="/draftorder">Draft Order</a>
 				<!-- This is what is the above collapse button points to when the mark-up below is collapsed -->
 				<div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
 					<!-- This is what "styles" the li's as navbar items -->
@@ -131,7 +132,7 @@
 			        		<tr><th ng-repeat="owner in owners1">{{ owner.owner }}</th></tr>
 			        	</thead>
 			        	<tbody>
-			        		<tr><td ng-repeat="playerName in attributes.playerName" ng-style="set_color(position)" ng-if="$index < 12">{{ playerName.playerName }}</td></tr>
+			        		<tr><td ng-repeat="playerName in attributes.playerName" ng-if="$index < 12">{{ playerName.playerName }}</td></tr>
 			        	</tbody>
 
 			        	<thead id="owner-names">
