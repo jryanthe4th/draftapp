@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+
+	<head>
+		<title>Welcome, <%= me.firstName %>!</title>
+		<!-- Viewport mobile tag for sensible mobile support -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<!--STYLES-->
+		<link rel="stylesheet" href="/styles/angular-toastr.css">
+		<link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
+		<link rel="stylesheet" href="/styles/custom.css">
+		<!--STYLES END-->
+		<link href='https://fonts.googleapis.com/css?family=Jura:600' rel='stylesheet' type='text/css'>
+		<!--Added this so the client has access to the csrf tag and it's grabbed first service side on every page -->
+		<script type="text/javascript">
+			window.SAILS_LOCALS = { _csrf: '<%= _csrf %>', me: <%- JSON.stringify(me) %> };
+		</script>
+	</head>
+
+
+	<body class="page-body" ng-app="DraftboardModule" ng-controller="DraftboardCtrl" ng-cloak>
+
+		<!-- container = Fixed-width container container-fluid = full-width -->
+		<div class="container-fluid">
+
+
+			<!-- NAVBAR -->
+			<nav class="navbar navbar-full navbar-inverse" id="nav-bar">
+				<!-- This creates the mechanism for collapse button -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+				<!-- This controls the number of lines in the image when the nav collapse -->
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<!-- This is the brand on the left-hand side. -->
+				<a class="navbar-brand" href="/#/">Draft Board</a>
+				<a class="navbar-brand" href="/tradeboard">Trade Board</a>
+				<a class="navbar-brand" href="/draftorder">Draft Order</a>
+				<!-- This is what is the above collapse button points to when the mark-up below is collapsed -->
+				<div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+					<!-- This is what "styles" the li's as navbar items -->
+					<ul class="nav navbar-nav navbar-right">
+						<!-- navbar-right pulls this element right -->
+						<!-- Using ng-show instead of ng-if because we need this mark-up to be in the dom when signup controller
+						fires.  If it's not there (which it wouldn't be in the case of ng-if) then the scope of the signup
+						controller will not be tied to this element. -->
+						<li>
+							<a href="/logout">Log Out</a>
+						</li>
+						<!-- <a ng-controller="signinController" class="btn btn-default navbar-btn navbar-right" href="#" ng-if="!isAuthenticated">sign-in</a> -->
+						<!-- Using ng-show instead of ng-if because we need this mark-up to be in the dom when signup controller
+						fires.  If it's not there (which it wouldn't be in the case of ng-if) then the scope of the signup
+						controller will not be tied to this element. -->
+					</ul>
+				</div>
+			</nav>
+	            <div id="draftboard">
+			        <table id="draftboard-table">
+			        	<thead id="owner-names"><tr><th ng-repeat="owner in owners1">{{ owner.owner }}<br><button ng-click="editOwner(owner)" class="edit-button">Edit</button></th></tr></thead>
+			        	<thead id="owner-names"><tr><th ng-repeat="owner in owners2">{{ owner.owner }}<br><button class="edit-button">Edit</button></th></tr></thead>
+			        	<thead id="owner-names"><tr><th ng-repeat="owner in owners3">{{ owner.owner }}<br><button class="edit-button">Edit</button></th></tr></thead>
+			        	<thead id="owner-names"><tr><th ng-repeat="owner in owners4">{{ owner.owner }}<br><button class="edit-button">Edit</button></th></tr></thead>
+			        	<thead id="owner-names"><tr><th ng-repeat="owner in owners5">{{ owner.owner }}<br><button class="edit-button">Edit</button></th></tr></thead>
+			        	<thead id="owner-names"><tr><th ng-repeat="owner in owners6">{{ owner.owner }}<br><button class="edit-button">Edit</button></th></tr></thead>
+			        </table>
+
+	            	<br>
+
+<!-- 		            <form ng-submit="submitDraftOrderForm()">
+		            <div ng-repeat="ownerRd1 in attributes.ownerRd1">
+				        <div ng-show="ownerRd1.isEdited">
+				        	<input type="text" ng-model="draftorderForm.ownerRd1"/>
+				        	<button type="submit" ng-click="ownerRd1.isEdited = false">Ok</button>
+				        </div>
+				        <div ng-hide="ownerRd1.isEdited">{{ownerRd1.ownerRd1}}
+				        	<button ng-click="ownerRd1.isEdited = true">Edit</button>
+				        </div>
+				    </div>
+				    </form> -->
+
+				    <form ng-submit="submitDraftGridForm()" id="draft-grid-form" class="form-signin" name="draftgrid">
+				    	<h2 class="form-signin-heading">Number of Owners in Draft</h2>
+				    	<div class="row">
+
+				    		<!-- NUMBER OF OWNERS -->
+				    		<div class="control-group form-group col-md-6" name="numberOfOwners" ng-class="{'has-error':draftgrid.numberOfOwners.$invalid && draftgrid.numberOfOwners.$dirty}">
+				    			<input type="int" class="form-control" placeholder="Number of Owners in Draft"  ng-model="draftgrid.numberOfOwners" ng-maxlength="2" required>
+				    			<span class="help-block has-error" ng-if="draftgrid.numberOfOwners.$dirty"
+				    				<span ng-show="draftgrid.numberOfOwners.$error.required">Number of Owners is required</span>
+				    				<span ng-show="draftgrid.numberOfOwners.$error.maxlength">Number of Owners cannot be greater than 2 characters</span>
+				    			</span>
+				    		</div>
+
+				    		<!-- NUMBER OF ROUNDS -->
+				    		<div class="control-group form-group col-md-6" name="numberOfRounds" ng-class="{'has-error':draftgrid.numberOfRounds.$invalid && draftgrid.numberOfRounds.$dirty}">
+				    			<input type="int" class="form-control" placeholder="Number of Rounds in Draft"  ng-model="draftgrid.numberOfRounds" ng-maxlength="2" required>
+				    			<span class="help-block has-error" ng-if="draftgrid.numberOfRounds.$dirty"
+				    				<span ng-show="draftgrid.numberOfRounds.$error.required">Number of Rounds is required</span>
+				    				<span ng-show="draftgrid.numberOfRounds.$error.maxlength">Number of Rounds cannot be greater than 2 characters</span>
+				    			</span>
+				    		</div>
+
+				    		<!-- SUBMIT BUTTON -- Disable button until the form has no errors -->
+				    		<button class="btn btn btn-lg btn-block" id="btn-sign-in" type="submit" ng-disabled="draftgrid.$invalid">
+				    			<span ng-show="!draftgrid.loading">Submit</span>
+				    			<span class="draftapp-loading-spinner fa fa-spinner" ng-show="draftgrid.loading"></span>
+				    			<span ng-show="draftgrid.loading">Building Draft Board...</span>
+				    		</button>
+				    		<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+				    	</div>
+				    </form>
+
+<!-- 				    <form ng-submit="submitDraftOrderForm()" id="draft-order-form" class="form-draftorder" name="draftorder">
+				    	<h2 class="form-signin-heading">Set Draft Order</h2>
+				    	<div class="row">
+				    		<div class="control-group form-group col-md-6" ng-class="{'has-error':draftorder.ownerName.$invalid && draftorder.ownersRd1">
+				    			<input type="text" class="form-control" placeholder="Owner Name - Round 1" name="ownerNameRd1" ng-model="draftorderForm.ownerRd1" ng-maxlength="30" required>
+				    		</div>
+				    	</div>
+				    </form> -->
+			    </div>
+
+			<!--SCRIPTS-->
+			<script src="/js/dependencies/sails.io.js"></script>
+			<script src="/js/dependencies/angular.js"></script>
+			<script src="/js/dependencies/jquery.min.js"></script>
+			<script src="/js/dependencies/pusher.min.js"></script>
+			<script src="/js/dependencies/angular-animate.min.js"></script>
+			<script src="/js/dependencies/angular-toastr.js"></script>
+			<script src="/js/dependencies/app.js"></script>
+			<script src="/js/dependencies/bootstrap.min.js"></script>
+			<script src="/js/dependencies/compareTo.module.js"></script>
+			<script src="/js/dependencies/pusher-angular.js"></script>
+			<script src="/js/dependencies/ui-bootstrap-tpls.js"></script>
+			<script src="/js/public/signup/SignupModule.js"></script>
+			<script src="/js/public/homepage/HomepageModule.js"></script>
+			<script src="/js/private/draftboard/DraftboardCtrl.js"></script>
+			<script src="/js/private/tradeboard/TradeboardCtrl.js"></script>
+			<script src="/js/public/homepage/HomepageCtrl.js"></script>
+			<script src="/js/public/signup/SignupCtrl.js"></script>
+			<!--SCRIPTS END-->
+		</div>
+	</body>
+</html>

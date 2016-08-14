@@ -284,6 +284,33 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
     //     });
     // };
 
+    // Set-up loading state
+    $scope.draftGridForm = {
+    	loading: false
+    }
+
+    // Submit owners and rounds form
+    $scope.draftGridForm = function() {
+
+    	$scope.draftGridForm.loading = true;
+
+    	$http.post('/draftorder', {
+
+    		numberOfOwners : $scope.draftGridForm.numberOfOwners,
+    		numberOfRounds : $scope.draftGridForm.numberOfRounds
+
+    	})
+    	.then(function onSuccess(sailsResponse) {
+    		window.location = '/draftorder'
+    	})
+    	.catch(function onError(sailsResponse) {
+
+    	})
+    	.finally(function eitherWay() {
+    		$scope.ownersAndRoundsForm.loading = false;
+    	});
+    };
+
 
 //////////////////////////////////////////////////////////////////////////
 
