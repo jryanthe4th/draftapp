@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html>
-
-
 	<head>
 		<title>Welcome, <%= me.firstName %>!</title>
 		<!-- Viewport mobile tag for sensible mobile support -->
@@ -18,21 +16,8 @@
 		</script>
 		<script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-		<script type="text/javascript">
-			$(document).ready(function() {
-				var socket = io();
-				$('form').submit(function() {
-					socket.emit('draft selection', $('#draftselection').val());
-					$('#draftselection').val('');
-					return false;
-				});
-			})
-		</script>
-
 	</head>
-
-
-	<body class="page-body" ng-app="DraftboardModule" ng-controller="DraftboardCtrl" ng-cloak>
+	<body class="page-body" ng-app="EasyMoneyDraftboardModule" ng-controller="EasyMoneyDraftboardCtrl" ng-cloak>
 
 		<!-- container = Fixed-width container container-fluid = full-width -->
 		<div class="container-fluid">
@@ -81,19 +66,19 @@
 			<!-- MODAL DRAFTBOARD FORM -->
 			<script type="text/ng-template" id="table.html" id="myModal">
 				<div class="modal-content">
-					<form ng-submit="submitDraftboardForm()">
+					<form ng-submit="submitEasyMoneyDraftboardForm()">
 						<div class="modal-header" id="modal-title">
 							<button type="button" class="close" id="close-modal" data-dismiss="modal" ng-click="cancel()">&times;</button>
 							Enter Draft Selection
 						</div>
 						<div class="modal-body">
 							<div class="form-group">
-								<input type="text" class="draftplayer-input" id="draftselection" placeholder="Player Name" ng-model="draftboardForm.playerName" required>
+								<input type="text" class="draftplayer-input" id="draftselection" placeholder="Player Name" ng-model="EasyMoneyDraftboardForm.playerName" required>
 							</div>
 							<br>
 							<div class="form-group">
 								<label id="position-label">Position</label><br>
-								<select class="draftplayer-select" name="position" ng-model="draftboardForm.position" ng-options="opt for opt in ['QB','RB','WR','TE','K','DST']" required>
+								<select class="draftplayer-select" name="position" ng-model="EasyMoneyDraftboardForm.position" ng-options="opt for opt in ['QB','RB','WR','TE','K','DST']" required>
 									<option></option><option>QB</option><option>RB</option><option>WR</option><option>TE</option><option>K</option><option>DST</option>
 								</select>
 							</div>
@@ -174,6 +159,78 @@
 			        	</thead>
 			        	<tbody>
 			        		<tr><td ng-repeat="playerName in attributes.playerName" ng-if="$index > 59 && $index < 72">{{ playerName.playerName }}</td></tr>
+			        	</tbody>
+
+			        	<!-- ROUND 6 -->
+			        	<thead id="owner-names">
+			        		<tr><th ng-repeat="owner in owners7">{{ owner.owner }}</th></tr>
+			        	</thead>
+			        	<tbody>
+			        		<tr><td ng-repeat="playerName in attributes.playerName" ng-if="$index > 71 && $index < 84">{{ playerName.playerName }}</td></tr>
+			        	</tbody>
+
+			        	<!-- ROUND 6 -->
+			        	<thead id="owner-names">
+			        		<tr><th ng-repeat="owner in owners8">{{ owner.owner }}</th></tr>
+			        	</thead>
+			        	<tbody>
+			        		<tr><td ng-repeat="playerName in attributes.playerName" ng-if="$index > 83 && $index < 96">{{ playerName.playerName }}</td></tr>
+			        	</tbody>
+
+			        	<!-- ROUND 6 -->
+			        	<thead id="owner-names">
+			        		<tr><th ng-repeat="owner in owners9">{{ owner.owner }}</th></tr>
+			        	</thead>
+			        	<tbody>
+			        		<tr><td ng-repeat="playerName in attributes.playerName" ng-if="$index > 95 && $index < 108">{{ playerName.playerName }}</td></tr>
+			        	</tbody>
+
+			        	<!-- ROUND 6 -->
+			        	<thead id="owner-names">
+			        		<tr><th ng-repeat="owner in owners10">{{ owner.owner }}</th></tr>
+			        	</thead>
+			        	<tbody>
+			        		<tr><td ng-repeat="playerName in attributes.playerName" ng-if="$index > 107 && $index < 120">{{ playerName.playerName }}</td></tr>
+			        	</tbody>
+
+			        	<!-- ROUND 6 -->
+			        	<thead id="owner-names">
+			        		<tr><th ng-repeat="owner in owners11">{{ owner.owner }}</th></tr>
+			        	</thead>
+			        	<tbody>
+			        		<tr><td ng-repeat="playerName in attributes.playerName" ng-if="$index > 119 && $index < 132">{{ playerName.playerName }}</td></tr>
+			        	</tbody>
+
+			        	<!-- ROUND 6 -->
+			        	<thead id="owner-names">
+			        		<tr><th ng-repeat="owner in owners12">{{ owner.owner }}</th></tr>
+			        	</thead>
+			        	<tbody>
+			        		<tr><td ng-repeat="playerName in attributes.playerName" ng-if="$index > 131 && $index < 144">{{ playerName.playerName }}</td></tr>
+			        	</tbody>
+
+			        	<!-- ROUND 6 -->
+			        	<thead id="owner-names">
+			        		<tr><th ng-repeat="owner in owners13">{{ owner.owner }}</th></tr>
+			        	</thead>
+			        	<tbody>
+			        		<tr><td ng-repeat="playerName in attributes.playerName" ng-if="$index > 143 && $index < 156">{{ playerName.playerName }}</td></tr>
+			        	</tbody>
+
+			        	<!-- ROUND 6 -->
+			        	<thead id="owner-names">
+			        		<tr><th ng-repeat="owner in owners14">{{ owner.owner }}</th></tr>
+			        	</thead>
+			        	<tbody>
+			        		<tr><td ng-repeat="playerName in attributes.playerName" ng-if="$index > 155 && $index < 168">{{ playerName.playerName }}</td></tr>
+			        	</tbody>
+
+			        	<!-- ROUND 6 -->
+			        	<thead id="owner-names">
+			        		<tr><th ng-repeat="owner in owners15">{{ owner.owner }}</th></tr>
+			        	</thead>
+			        	<tbody>
+			        		<tr><td ng-repeat="playerName in attributes.playerName" ng-if="$index > 167 && $index < 180">{{ playerName.playerName }}</td></tr>
 			        	</tbody>
 			        </table>
 	            </div>
