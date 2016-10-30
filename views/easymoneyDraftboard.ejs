@@ -112,6 +112,7 @@
 			        	</tbody>
 			        </table> -->
 
+
 			        <table id="draftboard-table">
 			        	<!-- ROUND 1 -->
 			        	<thead id="owner-names">
@@ -123,7 +124,7 @@
 
 			        	<!-- ROUND 2 -->
 			        	<thead id="owner-names">
-			        		<tr><th ng-repeat="owner in owners2">{{ owner.owner }}</th></tr>
+			        		<tr><th ng-repeat="owner in owners2.slice().reverse()">{{ owner.owner }}</th></tr>
 			        	</thead>
 			        	<tbody>
 			        		<tr><td ng-repeat="playerName in attributes.playerName" ng-if="$index > 11 && $index < 24">{{ playerName.playerName }}</td></tr>
