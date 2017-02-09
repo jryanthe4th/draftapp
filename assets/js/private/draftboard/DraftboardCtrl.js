@@ -51,6 +51,209 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
         }
     ];
 
+////// 2017 DRAFT //////
+    // ARRAY OF OWNERS
+    $scope.owners1_2017 = [
+        {
+            owner: 'Jensen'
+        },
+        {
+            owner: 'Mack'
+        },
+        {
+            owner: 'Jake'
+        },
+        {
+            owner: 'Austin'
+        },
+        {
+            owner: 'Jake'
+        },
+        {
+            owner: 'Jake'
+        },
+        {
+            owner: 'Jensen'
+        },
+        {
+            owner: 'Nick'
+        },
+        {
+            owner: 'Danny'
+        },
+        {
+            owner: 'Canaan'
+        },
+        {
+            owner: 'Riley'
+        },
+        {
+            owner: 'Danny'
+        }
+    ];
+
+    // ARRAY OF OWNERS
+    $scope.owners2_2017 = [
+        {
+            owner: 'Jensen'
+        },
+        {
+            owner: 'Jordan'
+        },
+        {
+            owner: 'Mack'
+        },
+        {
+            owner: 'Austin'
+        },
+        {
+            owner: 'Jake'
+        },
+        {
+            owner: 'Jake'
+        },
+        {
+            owner: 'Joe'
+        },
+        {
+            owner: 'Joe'
+        },
+        {
+            owner: 'Purk'
+        },
+        {
+            owner: 'Canaan'
+        },
+        {
+            owner: 'Austin'
+        },
+        {
+            owner: 'Purk'
+        }
+    ];
+
+    // ARRAY OF OWNERS
+    $scope.owners3_2017 = [
+        {
+            owner: 'Jensen'
+        },
+        {
+            owner: 'Mack'
+        },
+        {
+            owner: 'Jensen'
+        },
+        {
+            owner: 'Austin'
+        },
+        {
+            owner: 'Riley'
+        },
+        {
+            owner: 'Jordan'
+        },
+        {
+            owner: 'Brayden'
+        },
+        {
+            owner: 'Nick'
+        },
+        {
+            owner: 'Purk'
+        },
+        {
+            owner: 'Canaan'
+        },
+        {
+            owner: 'Riley'
+        },
+        {
+            owner: 'Purk'
+        }
+    ];
+
+    // ARRAY OF OWNERS
+    $scope.owners4_2017 = [
+        {
+            owner: 'Purkey'
+        },
+        {
+            owner: 'Jake'
+        },
+        {
+            owner: 'Joe'
+        },
+        {
+            owner: 'Mack'
+        },
+        {
+            owner: 'Jensen'
+        },
+        {
+            owner: 'Jensen'
+        },
+        {
+            owner: 'Jensen'
+        },
+        {
+            owner: 'Nick'
+        },
+        {
+            owner: 'Canaan'
+        },
+        {
+            owner: 'Josh'
+        },
+        {
+            owner: 'Jordan'
+        },
+        {
+            owner: 'Nick'
+        }
+    ];
+
+    // ARRAY OF OWNERS
+    $scope.owners5_2017 = [
+        {
+            owner: 'Danny'
+        },
+        {
+            owner: 'Jake'
+        },
+        {
+            owner: 'Joe'
+        },
+        {
+            owner: 'Mack'
+        },
+        {
+            owner: 'Canaan'
+        },
+        {
+            owner: 'Jensen'
+        },
+        {
+            owner: 'Jensen'
+        },
+        {
+            owner: 'Nick'
+        },
+        {
+            owner: 'Josh'
+        },
+        {
+            owner: 'Riley'
+        },
+        {
+            owner: 'Jordan'
+        },
+        {
+            owner: 'Nick'
+        }
+    ];
+
+
+////// 2016 DRAFT //////
     // ARRAY OF OWNERS
     $scope.owners1 = [
         {
