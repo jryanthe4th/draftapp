@@ -79,7 +79,7 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
             owner: 'Nick'
         },
         {
-            owner: 'Jensen'
+            owner: 'Danny'
         },
         {
             owner: 'Canaan'
@@ -101,7 +101,7 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
             owner: 'Jordan'
         },
         {
-            owner: 'Mack'
+            owner: 'Brayden'
         },
         {
             owner: 'Mack'
@@ -110,7 +110,7 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
             owner: 'Jake'
         },
         {
-            owner: 'Jake'
+            owner: 'Jordan'
         },
         {
             owner: 'Joe'
@@ -175,7 +175,7 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
     // ARRAY OF OWNERS
     $scope.owners4_2017 = [
         {
-            owner: 'Canaan'
+            owner: 'Jensen'
         },
         {
             owner: 'Mack'
@@ -190,7 +190,7 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
             owner: 'Jake'
         },
         {
-            owner: 'Jensen'
+            owner: 'Jordan'
         },
         {
             owner: 'Joe'
@@ -199,23 +199,23 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
             owner: 'Nick'
         },
         {
+            owner: 'Danny'
+        },
+        {
+            owner: 'Jensen'
+        },
+        {
+            owner: 'Riley'
+        },
+        {
             owner: 'Canaan'
-        },
-        {
-            owner: 'Josh'
-        },
-        {
-            owner: 'Jordan'
-        },
-        {
-            owner: 'Nick'
         }
     ];
 
     // ARRAY OF OWNERS
     $scope.owners5_2017 = [
         {
-            owner: 'Danny'
+            owner: 'Jensen'
         },
         {
             owner: 'Mack'
@@ -230,7 +230,7 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
             owner: 'Jake'
         },
         {
-            owner: 'Jensen'
+            owner: 'Jordan'
         },
         {
             owner: 'Joe'
@@ -239,16 +239,16 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
             owner: 'Nick'
         },
         {
-            owner: 'Josh'
+            owner: 'Danny'
+        },
+        {
+            owner: 'Canaan'
         },
         {
             owner: 'Riley'
         },
         {
-            owner: 'Jordan'
-        },
-        {
-            owner: 'Nick'
+            owner: 'Purk'
         }
     ];
 
