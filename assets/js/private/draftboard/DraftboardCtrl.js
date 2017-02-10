@@ -51,7 +51,7 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
         }
     ];
 
-////// 2017 DRAFT //////
+////// 2017 DRAFT ////////////////////////////////////////////////
     // ARRAY OF OWNERS
     $scope.owners1_2017 = [
         {
@@ -175,7 +175,7 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
     // ARRAY OF OWNERS
     $scope.owners4_2017 = [
         {
-            owner: 'Purkey'
+            owner: 'Canaan'
         },
         {
             owner: 'Mack'
@@ -193,7 +193,7 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
             owner: 'Jensen'
         },
         {
-            owner: 'Jensen'
+            owner: 'Joe'
         },
         {
             owner: 'Nick'
@@ -233,7 +233,7 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
             owner: 'Jensen'
         },
         {
-            owner: 'Jensen'
+            owner: 'Joe'
         },
         {
             owner: 'Nick'
@@ -253,7 +253,7 @@ myApp.controller('DraftboardCtrl', ['$scope', '$http', 'toastr', '$uibModal', '$
     ];
 
 
-////// 2016 DRAFT //////
+////// 2016 DRAFT ////////////////////////////////////
     // ARRAY OF OWNERS
     $scope.owners1 = [
         {
